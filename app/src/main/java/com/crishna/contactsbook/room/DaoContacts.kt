@@ -10,9 +10,9 @@ import com.crishna.contactsbook.model.Person
 @Dao
 interface DaoContacts {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun InsertContact(person: Person)
 
-    @Query("SELECT * FROM Contacts")
+    @Query("Select * From Contacts")
      fun getContacts(): LiveData<List<Person>>
 }

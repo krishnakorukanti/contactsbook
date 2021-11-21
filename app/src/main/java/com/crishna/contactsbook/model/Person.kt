@@ -6,8 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Contacts")
 data class Person(
-    @PrimaryKey(autoGenerate = true)
-    var userId: Int = 0,
 
     @ColumnInfo(name = "firstname")
     var firstname: String,
@@ -24,5 +22,7 @@ data class Person(
     @ColumnInfo(name = "phone")
     var phone: Long
 ) {
-
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var userId: Int = 0
 }

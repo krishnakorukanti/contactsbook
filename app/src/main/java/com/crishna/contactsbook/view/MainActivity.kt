@@ -42,9 +42,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getAllContacts() {
-        homeViewModel.getAllContacts().observe(this, {
+//        homeViewModel.getAllContacts().observe(this, {
+//
+//        })
 
-        })
+        homeViewModel.insertContacts("Sai","Krishna","crishnakorukanti@gmail.com","personal",9505588009)
     }
 
     private fun initViews() {

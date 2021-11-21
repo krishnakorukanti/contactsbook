@@ -7,13 +7,16 @@ import com.crishna.contactsbook.databinding.ItemContactsBinding
 import com.crishna.contactsbook.model.Person
 
 
-class ContactsListAdapter(var contactsList: List<Person>) :
+class ContactsListAdapter(
+    var contactsList: List<Person>,
+    val contactClickListener: ContactClickListener
+) :
     RecyclerView.Adapter<ContactsListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsListViewHolder {
         val binding =
             ItemContactsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ContactsListViewHolder(binding)
+        return ContactsListViewHolder(binding, contactClickListener)
     }
 
     override fun onBindViewHolder(holder: ContactsListViewHolder, position: Int) {

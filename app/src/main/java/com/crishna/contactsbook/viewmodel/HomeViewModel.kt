@@ -9,16 +9,6 @@ import com.crishna.contactsbook.repository.OperationsRepo
 class HomeViewModel(context: Context) : ViewModel() {
     private val operationsRepo = OperationsRepo(context)
 
-    fun insertContacts(
-
-        firstname: String,
-        lastname: String,
-        email: String,
-        type: String,
-        phone: Long
-    ) {
-        operationsRepo.addContacts(firstname, lastname, email, type, phone)
-    }
 
     fun getAllContacts(): LiveData<List<Person>> {
         return operationsRepo.getAllContacts()

@@ -37,4 +37,14 @@ class OperationsRepo(private val context: Context) {
     fun filterContacts(filterType: String): LiveData<List<Person>> {
         return DataBaseContacts.getInstance(context).contactsDao().filterContacts(filterType)
     }
+
+    fun getContactData(id: Int): LiveData<Person> {
+        return DataBaseContacts.getInstance(context).contactsDao().getContact(id)
+    }
+
+    fun deleteContact(person: Person){
+        CoroutineScope(Dispatchers.IO).launch {
+            DataBaseContacts.getInstance(context).contactsDao().deleteContact(person)
+        }
+    }
 }

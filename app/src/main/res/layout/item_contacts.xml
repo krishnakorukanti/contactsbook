@@ -8,6 +8,7 @@
     app:cardCornerRadius="5dp">
 
     <RelativeLayout
+        android:id="@+id/contactHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?backgroundColor"

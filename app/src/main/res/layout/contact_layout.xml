@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="@dimen/dp_10"
+    app:cardCornerRadius="@dimen/sp_20">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?backgroundColor"
+        android:gravity="center"
+        android:paddingTop="30sp"
+        android:paddingBottom="30sp">
+
+        <TextView
+            android:id="@+id/contactNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:text="Sai Krishna"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_25"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/contactTypeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contactNameTV"
+            android:layout_centerHorizontal="true"
+            android:text="(Personal)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/contactPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contactTypeTV"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@color/white"
+            android:padding="@dimen/dp_10"
+            android:text="9505588009"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="@dimen/sp_18"
+            app:drawableEndCompat="@drawable/ic_twotone_call_24" />
+
+        <TextView
+            android:id="@+id/contactEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contactPhone"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:text="crishnakorukanti@gmail.com"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="@dimen/sp_18"
+            app:drawableEndCompat="@drawable/ic_twotone_email_24" />
+
+
+        <TextView
+            android:id="@+id/editContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contactEmail"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:text="Edit Contact"
+            android:textColor="@color/teal_200"
+            android:textSize="@dimen/sp_18"
+            app:drawableEndCompat="@drawable/ic_twotone_edit_24" />
+        <TextView
+            android:id="@+id/deleteContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editContact"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:text="Delete Contact"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="@dimen/sp_18"
+            app:drawableEndCompat="@drawable/ic_twotone_delete_24" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

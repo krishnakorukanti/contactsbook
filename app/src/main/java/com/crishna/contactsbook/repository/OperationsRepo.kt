@@ -11,15 +11,15 @@ import kotlinx.coroutines.launch
 class OperationsRepo(private val context: Context) {
 
     fun addContacts(
-        firstname: String?,
-        lastname: String?,
-        email: String?,
-        type: String?,
-        phone: Long?
+        firstname: String,
+        lastname: String,
+        email: String,
+        type: String,
+        phone: Long
 
         ) {
         CoroutineScope(Dispatchers.IO).launch {
-            val person = Person(firstname, lastname, email, type, phone)
+            val person = Person(firstname = firstname, lastname = lastname, email =  email, type = type, phone = phone)
             DataBaseContacts.getInstance(context).contactsDao.InsertContact(person)
         }
     }

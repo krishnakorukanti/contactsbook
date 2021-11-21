@@ -11,11 +11,11 @@ class HomeViewModel(context: Context) : ViewModel() {
 
     fun insertContacts(
 
-        firstname: String?,
-        lastname: String?,
-        email: String?,
-        type: String?,
-        phone: Long?
+        firstname: String,
+        lastname: String,
+        email: String,
+        type: String,
+        phone: Long
     ) {
         operationsRepo.addContacts(firstname, lastname, email, type, phone)
     }

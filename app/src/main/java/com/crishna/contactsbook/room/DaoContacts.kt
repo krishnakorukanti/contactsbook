@@ -13,6 +13,6 @@ interface DaoContacts {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun InsertContact(person: Person)
 
-    @Query("SELECT * From Contacts")
+    @Query("SELECT * FROM Contacts")
      fun getContacts(): LiveData<List<Person>>
 }

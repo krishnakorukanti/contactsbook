@@ -48,15 +48,18 @@
         android:id="@+id/contactsListRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radioFilters" />
+        android:layout_below="@id/radioFilters"
+        tools:listitem="@layout/item_contacts" />
 
     <TextView
+        android:id="@+id/noContactsTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="No Contacts Available"
         android:textColor="?colorOnSecondary"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="@dimen/sp_20"
+        android:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingAddContactBtn"

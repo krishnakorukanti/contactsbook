@@ -13,6 +13,13 @@ interface DaoContacts {
     @Insert
     suspend fun InsertContact(person: Person)
 
+
+    @Insert
+    suspend fun InsertContactList(contactList: List<Person>)
+
     @Query("Select * From Contacts")
      fun getContacts(): LiveData<List<Person>>
+
+     @Query("Select * From Contacts Where type like :filterType")
+     fun filterContacts(filterType :String): LiveData<List<Person>>
 }

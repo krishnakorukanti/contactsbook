@@ -17,14 +17,24 @@ class OperationsRepo(private val context: Context) {
         type: String,
         phone: Long
 
-        ) {
+    ) {
         CoroutineScope(Dispatchers.IO).launch {
-            val person = Person(firstname = firstname, lastname = lastname, email =  email, type = type, phone = phone)
-            DataBaseContacts.getInstance(context).contactsDao.InsertContact(person)
+            val person = Person(
+                firstname = firstname,
+                lastname = lastname,
+                email = email,
+                type = type,
+                phone = phone
+            )
+            DataBaseContacts.getInstance(context).contactsDao().InsertContact(person)
         }
     }
 
     fun getAllContacts(): LiveData<List<Person>> {
-        return DataBaseContacts.getInstance(context).contactsDao.getContacts()
+        return DataBaseContacts.getInstance(context).contactsDao().getContacts()
+    }
+
+    fun filterContacts(filterType: String): LiveData<List<Person>> {
+        return DataBaseContacts.getInstance(context).contactsDao().filterContacts(filterType)
     }
 }

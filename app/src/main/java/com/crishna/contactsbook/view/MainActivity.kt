@@ -2,6 +2,7 @@ package com.crishna.contactsbook.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.crishna.contactsbook.databinding.ActivityMainBinding
@@ -25,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContactsList()
         getAllContacts()
 
+
     }
+
 
     private fun setContactsList() {
         contactsListAdapter = ContactsListAdapter(contactList)
@@ -42,14 +45,50 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getAllContacts() {
-//        homeViewModel.getAllContacts().observe(this, {
-//
-//        })
+        homeViewModel.getAllContacts().observe(this, {
+            contactList = it
+            setContactsList()
+            contactsListAdapter.updateContactsList(it)
+        })
 
-        homeViewModel.insertContacts("Sai","Krishna","crishnakorukanti@gmail.com","personal",9505588009)
     }
 
     private fun initViews() {
 
+binding.apply {
+    radioFilters.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener{
+        override fun onCheckedChanged(group:  RadioGroup?, p1: Int) {
+            applyFilter(group?.getCheckedRadioButtonId())
+        }
+
+    })
+}
     }
+
+    private fun applyFilter(checkedRadioButtonId: Int?) {
+        when(checkedRadioButtonId){
+
+            binding.filterAll.id ->{
+                getAllContacts()
+            }
+            binding.filterBusiness.id ->{
+            homeViewModel.observeFilters(binding.filterBusiness.text.toString()).observe(this,{
+                contactList = it
+                setContactsList()
+                contactsListAdapter.updateContactsList(it)
+            })
+
+            }
+            binding.filterPersonal.id ->{
+                homeViewModel.observeFilters(binding.filterPersonal.text.toString()).observe(this,{
+                    contactList = it
+                    setContactsList()
+                    contactsListAdapter.updateContactsList(it)
+                })
+            }
+            else -> getAllContacts()
+        }
+
+    }
+
 }

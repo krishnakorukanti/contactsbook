@@ -10,13 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContactsBook">
         <activity
+            android:name=".view.update.EditContactActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.create.CreateContactActivity"
             android:exported="true" />
         <activity
             android:name=".view.info.ContactInfoActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".view.home.MainActivity"
             android:exported="true">

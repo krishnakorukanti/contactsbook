@@ -27,4 +27,7 @@ class CreateViewModel(context: Context) : ViewModel() {
     fun deleteContact(person: Person){
         operationsRepo.deleteContact(person)
     }
+    fun udpateContact(person: Person){
+        operationsRepo.updateContact(person)
+    }
 }

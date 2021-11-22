@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioGroup
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.crishna.contactsbook.databinding.ActivityMainBinding
@@ -69,6 +70,29 @@ class MainActivity : AppCompatActivity(), ContactClickListener {
                 val intent = Intent(this@MainActivity, CreateContactActivity::class.java)
                 startActivity(intent)
             }
+
+            searchContacts.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(search: String?): Boolean {
+                    if (search!=null)
+                        homeViewModel.searchContacts(search).observe(this@MainActivity,{
+                            contactList = it
+                            setContactsList()
+                            contactsListAdapter.updateContactsList(it)
+                        })
+                    return false
+                }
+
+                override fun onQueryTextChange(search: String?): Boolean {
+                    if (search!=null)
+                    homeViewModel.searchContacts(search).observe(this@MainActivity,{
+                        contactList = it
+                        setContactsList()
+                        contactsListAdapter.updateContactsList(it)
+                    })
+                    return false
+                }
+
+            })
 
         }
     }

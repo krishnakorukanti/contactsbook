@@ -42,9 +42,21 @@ class OperationsRepo(private val context: Context) {
         return DataBaseContacts.getInstance(context).contactsDao().getContact(id)
     }
 
-    fun deleteContact(person: Person){
+    fun deleteContact(person: Person) {
         CoroutineScope(Dispatchers.IO).launch {
             DataBaseContacts.getInstance(context).contactsDao().deleteContact(person)
         }
+    }
+
+    fun updateContact(person: Person) {
+        CoroutineScope(Dispatchers.IO).launch {
+
+            DataBaseContacts.getInstance(context).contactsDao().updateContact(person)
+        }
+    }
+
+    fun searchContacts(searchQuery: String): LiveData<List<Person>> {
+        return DataBaseContacts.getInstance(context).contactsDao().searchContacts(searchQuery)
+
     }
 }

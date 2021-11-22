@@ -1,10 +1,7 @@
 package com.crishna.contactsbook.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.crishna.contactsbook.model.Person
 
 @Dao
@@ -28,4 +25,11 @@ interface DaoContacts {
 
     @Delete
     fun deleteContact(person: Person)
+
+    @Update
+    suspend fun updateContact(person: Person)
+
+    @Query("Select * from Contacts where firstname Like (:searchQuery) or lastname Like (:searchQuery)")
+    fun searchContacts(searchQuery : String) : LiveData<List<Person>>
+
 }

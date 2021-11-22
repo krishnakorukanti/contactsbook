@@ -17,4 +17,8 @@ class HomeViewModel(context: Context) : ViewModel() {
     fun observeFilters(filter: String): LiveData<List<Person>> {
         return operationsRepo.filterContacts(filter)
     }
+
+    fun searchContacts(searchQuery: String): LiveData<List<Person>> {
+        return operationsRepo.searchContacts(searchQuery)
+    }
 }

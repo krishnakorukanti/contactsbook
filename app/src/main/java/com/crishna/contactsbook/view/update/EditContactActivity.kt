@@ -54,7 +54,10 @@ class EditContactActivity : AppCompatActivity() {
                     finish()
                 }
             }
-
+            topAppBar.setNavigationOnClickListener {
+                finish()
+            }
+            topText.setText("Update Contact")
         }
     }
     private fun getContactType(): String {

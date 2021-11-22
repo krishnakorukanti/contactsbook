@@ -55,7 +55,9 @@ class ContactInfoActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.apply {
-
+            topAppBar.setNavigationOnClickListener {
+                finish()
+            }
         }
     }
 }

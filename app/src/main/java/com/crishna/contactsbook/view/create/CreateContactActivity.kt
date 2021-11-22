@@ -32,7 +32,9 @@ class CreateContactActivity : AppCompatActivity() {
                     finish()
                 }
             }
-
+            topAppBar.setNavigationOnClickListener {
+                finish()
+            }
         }
     }
 
